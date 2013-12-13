@@ -1,46 +1,38 @@
 // tasks.js #2
 // This script manages a to-do list.
 
-// Need a global variable:
-var tasks = []; 
 
-// Function called when the form is submitted.
-// Function adds a task to the global array.
-function addTask() {
+var tasks = [];
+
+function addTask(){
     'use strict';
+  var task = document.getElementById('task'); //the area where user enters info
+  var output = document.getElementById('output');// area where the output will be displayed
+  var message = ''; //empty string to output the message to the user
 
-    // Get the task:
-    var task = document.getElementById('task');
+    if(task.value){
+        tasks[tasks.length] = task;
 
-    // Reference to where the output goes:
-    var output = document.getElementById('output');
-    
-    // For the output:
-    var message = '';
+    message = 'You have ' + tasks.length+ ' task(s) in your to-do list.';
 
-    if (task.value) {
-    
-        // Add the item to the array:
-        tasks.push(task.value);
-        
-        // Update the page:
-        message = '<h2>To-Do</h2><ol>';
-        for (var i = 0, count = tasks.length; i < count; i++) {
-            message += '<li>' + tasks[i] + '</li>';
+        if(output.textContent !== undefined){
+            output.textContent = message;
+
+        }else{
+            output.innerText = message;
         }
-        message += '</ol>';
-        output.innerHTML = message;
-        
-    } // End of task.value IF.
-
-    // Return false to prevent submission:
+    }
     return false;
-    
-} // End of addTask() function.
 
-// Initial setup:
-function init() {
+}
+
+//adding an event listener
+
+function init(){
     'use strict';
+
     document.getElementById('theForm').onsubmit = addTask;
-} // End of init() function.
-window.onload = init;
+}
+
+window.onload = init; //the function will not work automaticlly but instead once the user submits a form
+
