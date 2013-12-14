@@ -13,7 +13,7 @@ function addTask(){
     if(task.value){
         tasks[tasks.length] = task;
 
-    message = 'You have ' + tasks.length+ ' task(s) in your to-do list.';
+    message = 'You have ' + tasks.length+ ' task(s) in your to-do list.'; // the output for the user
 
         if(output.textContent !== undefined){
             output.textContent = message;
