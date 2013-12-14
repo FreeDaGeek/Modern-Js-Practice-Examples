@@ -8,7 +8,7 @@
 
         // Get form references:
           var firstName = document.getElementById('firstName').value;
-          var lastName = document.getElementById('lasttName').value;
+          var lastName = document.getElementById('lastName').value;
           var department = document.getElementById('department').value;
 
         // Reference to where the output goes:
@@ -19,7 +19,7 @@
               firstName: firstName,
               lastName: lastName,
               department: department,
-              hireDate: newDate()
+              hireDate: new Date()
           };
 
 
@@ -38,9 +38,10 @@
     }
 
     function init(){
-        'use strict';
+
     document.getElementById('theForm').onsubmit = process;
     }
+
 // End of process() function.
     window.onload = init;
 
@@ -48,4 +49,7 @@
 
 
 // End of init() function.
+
+
+
 
